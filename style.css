@@ -1,43 +1,69 @@
+* {
+    text-decoration: none;
+}
+
+* :link{
+    color: hotpink;
+}
+
+* :visited{
+    color: #578E7E;
+}
+
 body {
     margin: 0;
     height: 100vh;
     overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: Arial, sans-serif;
+    font-family:"Kode Mono", Arial, sans-serif;
+    font-weight: 300;
+    color: #F5ECD5;
 }
 
 .background {
     position: fixed;
     top: 0;
     left: 0;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(120deg, magenta, royalblue);
+    width: 100%;
+    height: 100%;
+    background: #000000;
     background-size: cover;
-    animation: colorShift 5s ease-in-out infinitee;
-    filter: blur(12px);
+    /* animation: colorShift 5s ease-in-out infinite; */
     z-index: -2;
 }
 
 .background-overlay {
     position: fixed;
+    top: 3%;
+    left: 2%;
+    width: 95%;
+    height: 92%;
+
+    border: solid #FFFAEC;
+    border-radius: 0%;
+    border-width: 0.11rem;
+
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0.2px, transparent 2px);
+    background-size: 15px 15px;
+    /* mix-blend-mode: overlay; */
+
+    /* animation: pan 180s linear infinite; */
+    z-index: -2;
+}
+
+canvas{
+    position: inherit;
     top: 0;
     left: 0;
+
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
-    background-size: 15px 15px;
-    mix-blend-mode: overlay;
-    z-index: -1;
 }
 
 .cursor-highlight {
     position: fixed;
     width: 150px;
     height: 150px;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.4) 10%, transparent 60%);
+    background: radial-gradient(circle, rgb(255, 255, 255) 10%, transparent 60%);
     border-radius: 50%;
     pointer-events: none;
     transform: translate(-50%, -50%);
@@ -45,10 +71,53 @@ body {
     z-index: -1;
 }
 
-@keyframes colorShift {
+/* animmation */
+@keyframes pan {
+    0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 0%;
+  }
+}
+
+/* @keyframes colorShift {
     0% { background-position: 0% 50%; }
     25% { background-position: 50% 75%; background-color: rgba(255, 0, 255, 0.8); }
     50% { background-position: 100% 50%; }
     75% { background-position: 50% 25%; }
     100% { background-position: 0% 50%; }
+} */
+
+
+
+/* main  */
+
+#introdution {
+    display: flex;
+    align-items: center;
+
+    margin-left: 5%;
+    margin-top: 2%;
+
+    font-size: 12px;
+    font-weight: 200;
+}
+
+
+/* about me styels */
+#about_me{
+    align-items: center;
+
+    margin-left: 5%;
+}
+
+#projects {
+    margin: 5px 5px;
+    padding: 24px 64px;
+
+}
+
+#info {
+    margin-left: 5%;
 }
