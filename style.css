@@ -13,7 +13,7 @@
 body {
     margin: 0;
     height: 100vh;
-    overflow: hidden;
+    overflow: auto;
     font-family:"Kode Mono", Arial, sans-serif;
     font-weight: 300;
     color: #F5ECD5;
@@ -67,7 +67,7 @@ body {
 
 
 
-/* Main body of text and content*/
+/* Main body of text and content index.html*/
 
 #introdution {
     align-items: center;
@@ -106,6 +106,128 @@ body {
 
 #gmail{
     pointer-events: none;
+}
+
+/* styling for project.html */
+
+.cards {
+    position: relative;
+    left: 5%;
+    width: 90%;
+    gap: 1rem;
+    display: flex;
+    flex-direction: row;
+    /* flex-wrap: nowrap; */
+    justify-content: center;
+    align-items: center;
+
+    /* scale: 0.9; */
+    transition: opacity 0.6s ease, transform 0.6s ease;   
+    z-index: 2;
+}
+
+/* for mobile */
+@media (max-width: 800px){
+    .cards{
+        flex-direction: column;
+        padding-bottom: 6%;
+    }
+    
+    /* Disabling hover effect */
+    
+    .link{
+        /* transform: none; */
+        background-color: transparent;
+        color: hotpink;
+    }
+    .card:active {
+        transform: scale(1.05); /* Use active state instead of hover */
+    }
+}
+
+
+.card a{
+    color: transparent;
+    font-weight: bold;
+    transition: color 0.2s ease;
+}
+
+.cards :hover{
+    transform: scale(1.05);
+    color: #1b1a1a;
+    background-color: rgba(255, 105, 180 , 0.7);
+    opacity: 1;
+}
+
+.cards :hover a{
+    background-color: transparent;
+    color: rgba(87, 142, 122, 1);
+}
+
+.cards h1:hover{
+    background-color: transparent;
+}
+
+.cards p:hover{
+    background-color: transparent;
+}
+
+.cards strong:hover{
+    background-color: transparent;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    /* justify-content: center; */
+    align-items: center;
+
+    height: fit-content;
+    width: 50%;
+    background-color:rgba(87, 142, 122, 0.9);
+    box-shadow: 0 4px 6px rgba(231, 228, 228, 0.1) ;
+    margin: 5% 5% 5% 5%;
+    padding-bottom: 10px;
+    gap: 1rem;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    border-radius: 2%;
+}
+
+/* .card img {
+    max-width: 100%;     
+    border-radius: 5px; 
+    margin-bottom: 15px; 
+} */
+
+.card h1 {
+    font-size: 1.5em;
+    /* margin-bottom: 0px; */
+}
+
+.card p {
+    padding: 0 1rem;
+    margin-top: 2px;
+    margin-bottom: 6px;
+}
+
+
+#cope {
+    position: fixed;
+    background-color: #000000;
+    height: 3%;
+    width: 100%;
+    top: 0;
+    z-index: 10;
+}
+
+#cope2 {
+    position: fixed;
+    background-color: #000000;
+    height: 4.5%;
+    width: 100%;
+    bottom: 0;
+    z-index: 10;
 }
 
 /* animmation */

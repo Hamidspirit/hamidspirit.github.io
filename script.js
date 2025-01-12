@@ -1,4 +1,5 @@
 const cursor = document.getElementById('cursor');
+const cards = document.querySelectorAll('.card');
 document.addEventListener('mousemove', (e) => {
 		cursor.style.top = `${e.clientY}px`;
 		cursor.style.left = `${e.clientX}px`;
@@ -85,3 +86,20 @@ document.addEventListener('DOMContentLoaded', () => {
 		canvas.height = overlay.offsetHeight;
 	});
 });
+
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = 1;
+      entry.target.style.transform = 'scale(1)';
+    } else {
+      entry.target.style.opacity = 0;
+      entry.target.style.transform = 'scale(0.9)';
+    }
+  });
+}, {
+  threshold: 0.5, // Adjust this to control when the effect triggers
+});
+
+cards.forEach((card) => observer.observe(card));
