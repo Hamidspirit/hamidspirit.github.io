@@ -73,7 +73,7 @@ body {
     align-items: center;
 
     margin-left: 5%;
-    margin-top: 5%;
+    margin-top: 2%;
     margin-bottom: 2%;
 
     font-size: 12px;
@@ -100,13 +100,10 @@ body {
     align-items: center;
 }
 
-#github_link {
+#contacts {
     margin-left: 2%;
 }
 
-#gmail{
-    pointer-events: none;
-}
 
 /* styling for project.html */
 
