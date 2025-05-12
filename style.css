@@ -113,7 +113,7 @@ body {
     width: 90%;
     gap: 1rem;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     /* flex-wrap: nowrap; */
     justify-content: center;
     align-items: center;
@@ -158,7 +158,7 @@ body {
 
 .cards :hover a{
     background-color: transparent;
-    color: rgba(87, 142, 122, 1);
+    color: rgb(90, 151, 128);
 }
 
 .cards h1:hover{
@@ -175,17 +175,18 @@ body {
 
 .card {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     flex-wrap: nowrap;
     /* justify-content: center; */
     align-items: center;
 
     height: fit-content;
-    width: 50%;
+    width: 80%;
     background-color:rgba(87, 142, 122, 0.9);
     box-shadow: 0 4px 6px rgba(231, 228, 228, 0.1) ;
     margin: 5% 5% 5% 5%;
     padding-bottom: 10px;
+    padding-right: 10px;
     gap: 1rem;
     transition: transform 0.3s ease, background-color 0.3s ease;
     border-radius: 2%;
@@ -203,11 +204,16 @@ body {
 }
 
 .card p {
+    line-height: 1.6rem;
     padding: 0 1rem;
     margin-top: 2px;
     margin-bottom: 6px;
 }
 
+.title{
+    display: block;
+    font-size: large;
+}
 
 #cope {
     position: fixed;
