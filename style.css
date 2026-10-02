@@ -163,6 +163,82 @@ code {
     margin: 0;
 }
 
+#introduction .where {
+    margin: 0.25rem 0 0;
+    color: var(--muted);
+    font-size: 0.875rem;
+}
+
+/* experience: newest first, a hairline down the left like the page frame */
+.timeline {
+    list-style: none;
+    margin: 0;
+    padding: 0 0 0 1.5rem;
+    border-left: 0.11rem solid var(--frame);
+}
+
+.timeline > li {
+    position: relative;
+    margin-bottom: 2.5rem;
+}
+
+.timeline > li:last-child {
+    margin-bottom: 0;
+}
+
+.timeline > li::before {
+    content: "";
+    position: absolute;
+    left: calc(-1.5rem - 0.36rem);
+    top: 0.35em;
+    width: 0.6rem;
+    height: 0.6rem;
+    background: var(--pink);
+}
+
+.timeline h3 {
+    font-size: 1.125rem;
+    margin: 0;
+}
+
+.timeline .when {
+    margin: 0.125rem 0 0.75rem;
+    color: var(--muted);
+    font-size: 0.875rem;
+}
+
+.timeline p {
+    margin: 0 0 0.75rem;
+}
+
+.work li {
+    margin-top: 1.5rem;
+}
+
+.work h4 {
+    font-size: 1rem;
+    margin: 0 0 0.25rem;
+}
+
+.stack {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 0.5rem 1.5rem;
+    margin: 0;
+}
+
+.stack dt {
+    color: var(--muted);
+}
+
+.stack dd {
+    margin: 0;
+}
+
+#education p {
+    margin: 0 0 0.5rem;
+}
+
 .featured-list li {
     margin-bottom: 1.5rem;
 }
@@ -215,12 +291,22 @@ code {
     max-width: none;
 }
 
+.group {
+    font-size: 1.5rem;
+    margin: 4rem 0 0.5rem;
+}
+
+.group-note {
+    margin: 0;
+    color: var(--muted);
+}
+
 .cards {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(min(100%, 22rem), 1fr));
     gap: 1.5rem;
     max-width: 75rem;
-    margin-top: 3rem;
+    margin-top: 1.5rem;
 }
 
 .card {
@@ -233,9 +319,14 @@ code {
     transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
 }
 
-.card h2 {
+.card h3 {
     margin: 0 0 0.75rem;
     font-size: 1.375rem;
+}
+
+.card cite {
+    font-style: normal;
+    font-weight: 600;
 }
 
 .card p {
@@ -295,7 +386,8 @@ code {
     margin-bottom: 0.75rem;
 }
 
-.tinkered a {
+.tinkered a,
+.tinkered .name {
     margin-right: 0.5rem;
     font-weight: 600;
 }
@@ -330,6 +422,15 @@ code {
     .site-nav,
     #info {
         margin-left: 0;
+    }
+
+    .stack {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .stack dd {
+        margin-bottom: 0.75rem;
     }
 
     .card:hover,

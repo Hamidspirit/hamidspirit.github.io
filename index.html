@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hamid Spirit</title>
-    <meta name="description" content="Hamid Spirit, backend developer. Go, Python, and a lot of breaking things to see how they work.">
+    <meta name="description" content="Hamid Spirit, backend developer from Iran. Django, Go and microservices. Open to remote work.">
     <meta property="og:title" content="Hamid Spirit">
-    <meta property="og:description" content="Backend developer. Go, Python, and a lot of breaking things to see how they work.">
+    <meta property="og:description" content="Backend developer from Iran. Django, Go and microservices. Open to remote work.">
     <meta property="og:url" content="https://hamidspirit.github.io/">
     <meta property="og:type" content="website">
     <meta name="theme-color" content="#000000">
@@ -31,69 +31,101 @@
 
     <header id="introduction">
         <h1>Hamid Spirit,</h1>
-        <p class="role">Backend Developer (intern)</p>
+        <p class="role">Backend Developer</p>
+        <p class="where">Qazvin and Tehran, Iran. Open to remote work anywhere.</p>
     </header>
 
     <section id="about_me">
         <h2>Here is a Generic About Me</h2>
 
-        <p>I am majoring in Computer Science. I have liked computers since childhood
-           and have broken my Windows operating system countless times.</p>
+        <p>I am studying Computer Engineering. I have liked computers since childhood
+           and have broken my Windows operating system countless times.
+           I've been doing this seriously for two years now.</p>
         <p>Programming is constantly learning.</p>
-        <p>Right now I'm working on an OCR and NLP project for medical purposes,
-           and learning Go, ML and C. I will one day make a video game.</p>
+        <p>Right now I take freelance backend projects, and I'm learning Go, ML and C.
+           I will one day make a video game.</p>
     </section>
 
-    <section id="stack">
-        <h2>What I work with</h2>
-        <ul class="stack-list">
-            <li>Go</li>
-            <li>Python</li>
-            <li>C</li>
-            <li>JavaScript</li>
-            <li>FastAPI</li>
-            <li>Django</li>
-            <li>Flask</li>
-            <li>gRPC</li>
-            <li>PostgreSQL</li>
-            <li>MongoDB</li>
-            <li>SQLite</li>
-            <li>Docker</li>
-            <li>Git</li>
-        </ul>
-    </section>
-
-    <!--
-    Experience goes here once the details are in. Format:
     <section id="experience">
         <h2>Experience</h2>
         <ol class="timeline">
             <li>
-                <h3>Role, Company</h3>
-                <p class="when">2025 – now</p>
-                <p>What you did there, in a sentence or two.</p>
+                <h3>Freelance</h3>
+                <p class="when">now</p>
+                <p>Backend projects for clients.</p>
+            </li>
+            <li>
+                <h3>Backend Developer, Nahira</h3>
+                <p class="when">9 months</p>
+                <p>Built backend services for the company's products, and mentored two interns before I left.</p>
+                <ul class="work">
+                    <li>
+                        <h4><a href="https://girpazh.com" target="_blank" rel="noopener">Girpazh</a></h4>
+                        <p>Multi-vendor marketplace for car parts, built as 9 microservices.
+                           I owned the user panel, payment and upload services in Django REST Framework,
+                           and helped on authentication (Laravel), the catalog and the super admin panel (NestJS).
+                           Services talk over RabbitMQ, events are logged to Kafka, MySQL and Redis underneath,
+                           everything in Docker. I left right before launch. It's live now, and people actually know it.</p>
+                    </li>
+                    <li>
+                        <h4>Joorja</h4>
+                        <p>Property booking platform, like Airbnb but for three cities to start.
+                           I built the whole backend by myself: Django REST Framework, a PostgreSQL schema with 40+ entities,
+                           payments, notifications, file uploads, deployment with Docker and Nginx.
+                           It never launched because I left before it was deployed.</p>
+                    </li>
+                    <li>
+                        <h4>HRbox</h4>
+                        <p>HR and recruitment platform. The odd one: I helped the frontend team
+                           connect the APIs, working with React, Redux Toolkit and TypeScript.</p>
+                    </li>
+                </ul>
             </li>
         </ol>
     </section>
-    -->
+
+    <section id="stack">
+        <h2>What I work with</h2>
+        <dl class="stack">
+            <dt>Languages</dt>
+            <dd>Python, Go, TypeScript, SQL</dd>
+            <dt>Backend</dt>
+            <dd>Django, Django REST Framework, NestJS, FastAPI, Flask</dd>
+            <dt>Messaging and data</dt>
+            <dd>RabbitMQ, Kafka, PostgreSQL, MySQL, Redis, MongoDB</dd>
+            <dt>Tools</dt>
+            <dd>Docker, Nginx, Git, GitHub Actions, Pytest, Linux shell</dd>
+            <dt>A bit of frontend</dt>
+            <dd>React, Redux Toolkit</dd>
+        </dl>
+    </section>
 
     <section id="featured">
-        <h2>Things I've built</h2>
+        <h2>Side projects</h2>
         <ul class="featured-list">
+            <li>
+                <a href="https://github.com/Hamidspirit/a-git-clone" target="_blank" rel="noopener">A Git Clone</a>
+                <p>Git's core commands rewritten with Go's standard library. Arguably the one I had the most fun with,
+                   and possibly the single worst piece of code ever written. The honour is mine.</p>
+            </li>
             <li>
                 <a href="https://github.com/Hamidspirit/MOK" target="_blank" rel="noopener">MOK</a>
                 <p>Make your Own Kafka. A Kafka-style broker in Go, from TCP connections up to request parsing and responses.</p>
             </li>
             <li>
-                <a href="https://github.com/Hamidspirit/MedAi" target="_blank" rel="noopener">MedAI</a>
-                <p>Medical OCR prototype. A Flask backend talks to an OCR service over gRPC.</p>
-            </li>
-            <li>
-                <a href="https://github.com/Hamidspirit/a-git-clone" target="_blank" rel="noopener">A Git Clone</a>
-                <p>Some of git rewritten in Go: init, commit, trees and objects. Possibly the single worst piece of code ever written, and the honour is mine.</p>
+                <a href="https://github.com/Hamidspirit/MedAi" target="_blank" rel="noopener">Documed AI</a>
+                <p>Your doctor companion: take a photo of your test results and it tells you what to do next
+                   and which doctors near you to see. OCR, with services talking over gRPC. I couldn't finish it.</p>
             </li>
         </ul>
         <a href="projects.html" class="more">See all projects</a>
+    </section>
+
+    <section id="education">
+        <h2>Education</h2>
+        <p>B.Sc. Computer Engineering, Islamic Azad University, Qazvin.<br>
+           2022 to 2026 (expected).</p>
+        <p>I speak Persian (native) and English (professional working).</p>
     </section>
   </main>
 
@@ -104,6 +136,7 @@
           <li><a href="https://www.linkedin.com/in/hamid-spirit-2938962a1/" target="_blank" rel="noopener">LinkedIn</a></li>
           <li><a href="https://t.me/hamidspirit" target="_blank" rel="noopener">Telegram</a></li>
           <li><a href="https://x.com/spirithamid" target="_blank" rel="noopener">X</a></li>
+          <li><a href="https://instagram.com/hamidspirit" target="_blank" rel="noopener">Instagram</a></li>
       </ul>
   </footer>
 

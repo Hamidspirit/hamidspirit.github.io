@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hamid Spirit / projects</title>
-    <meta name="description" content="Things Hamid Spirit has built: a Kafka clone and a git clone in Go, a medical OCR prototype, a neural network from scratch, and more.">
+    <meta name="description" content="Things Hamid Spirit has built: a car parts marketplace on microservices, a Kafka clone and a git clone in Go, a neural network from scratch, and more.">
     <meta property="og:title" content="Hamid Spirit / projects">
-    <meta property="og:description" content="A Kafka clone and a git clone in Go, a medical OCR prototype, a neural network from scratch, and more.">
+    <meta property="og:description" content="A car parts marketplace on microservices, a Kafka clone and a git clone in Go, a neural network from scratch, and more.">
     <meta property="og:url" content="https://hamidspirit.github.io/projects.html">
     <meta property="og:type" content="website">
     <meta name="theme-color" content="#000000">
@@ -30,12 +30,51 @@
     <main>
         <header class="page-head">
             <h1>Projects</h1>
-            <p>Mostly things I built to find out how they work on the inside.</p>
+            <p>Work from my job, and things I built to find out how they work on the inside.</p>
         </header>
 
+        <h2 class="group">At work</h2>
+        <p class="group-note">Built at Nahira. The code is private, so there are no source links.</p>
         <div class="cards">
             <article class="card">
-                <h2>MOK</h2>
+                <h3>Girpazh</h3>
+                <p>Multi-vendor marketplace for car parts, built as 9 microservices.
+                   I owned the user panel, payment and upload services, and helped on authentication,
+                   the catalog and the super admin panel. RabbitMQ between services, Kafka for event logs.</p>
+                <p class="tech">Django REST Framework, NestJS, Laravel, RabbitMQ, Kafka, MySQL, Redis, Docker</p>
+                <a href="https://girpazh.com" target="_blank" rel="noopener" class="link">Visit girpazh.com</a>
+            </article>
+
+            <article class="card">
+                <h3>Joorja</h3>
+                <p>Property booking platform, like Airbnb but for three cities to start.
+                   I built the whole backend by myself: 40+ entity PostgreSQL schema, payments,
+                   notifications, file uploads, deployment. It never launched because I left before it was deployed.</p>
+                <p class="tech">Django REST Framework, PostgreSQL, Docker, Nginx</p>
+            </article>
+
+            <article class="card">
+                <h3>HRbox</h3>
+                <p>HR and recruitment platform. The odd one: I helped the frontend team connect the APIs
+                   and wrote some React components.</p>
+                <p class="tech">React, Redux Toolkit, TypeScript</p>
+            </article>
+        </div>
+
+        <h2 class="group">On my own</h2>
+        <div class="cards">
+            <article class="card">
+                <h3>A Git Clone</h3>
+                <p>Some of git's features rewritten with Go's standard library: <code>init</code>, <code>commit</code>,
+                   <code>hash-object</code>, <code>cat-file</code>, <code>write-tree</code>, <code>read-tree</code>.
+                   Arguably the one I had the most fun with. Also might be the single worst piece of code ever written,
+                   and the honour is mine.</p>
+                <p class="tech">Go</p>
+                <a href="https://github.com/Hamidspirit/a-git-clone" target="_blank" rel="noopener" class="link">Source on GitHub</a>
+            </article>
+
+            <article class="card">
+                <h3>MOK</h3>
                 <p>Make your Own Kafka. A Kafka-style message broker written in Go:
                    handles TCP connections, parses request headers and metadata, writes responses.</p>
                 <p class="tech">Go, TCP</p>
@@ -43,39 +82,32 @@
             </article>
 
             <article class="card">
-                <h2>MedAI</h2>
-                <p>Medical OCR prototype. A Flask backend talks to a Pytesseract OCR service over gRPC.
-                   An MVP, I tried to make a working demo as fast as I could.</p>
-                <p class="tech">Python, Flask, gRPC, Pytesseract</p>
+                <h3>Documed AI</h3>
+                <p>Your doctor companion. Take a photo of your test results, OCR reads them, and it tells you
+                   what to do next and which doctors near you to see. Services talk over gRPC.
+                   I was inexperienced and couldn't finish it, but it was a cool project.</p>
+                <p class="tech">Go, Python, Flask, gRPC, Pytesseract</p>
                 <a href="https://github.com/Hamidspirit/MedAi" target="_blank" rel="noopener" class="link">Source on GitHub</a>
             </article>
 
             <article class="card">
-                <h2>A Git Clone</h2>
-                <p>Some of git's features rewritten in Go: <code>init</code>, <code>commit</code>,
-                   <code>hash-object</code>, <code>cat-file</code>, <code>write-tree</code>, <code>read-tree</code>.
-                   This might be the single worst piece of code ever written, and the honour is mine.</p>
-                <p class="tech">Go</p>
-                <a href="https://github.com/Hamidspirit/a-git-clone" target="_blank" rel="noopener" class="link">Source on GitHub</a>
-            </article>
-
-            <article class="card">
-                <h2>Ticketing API</h2>
+                <h3>Ticketing API</h3>
                 <p>A ticketing REST API I built as a task for a company. They reviewed it.</p>
                 <p class="tech">Python, FastAPI</p>
                 <a href="https://github.com/Hamidspirit/ticketing-api" target="_blank" rel="noopener" class="link">Source on GitHub</a>
             </article>
 
             <article class="card">
-                <h2>Hal</h2>
-                <p>My attempt at learning machine learning. A three-layer neural network
-                   written from scratch, trained on MNIST to read handwritten digits. 91.8% accuracy.</p>
+                <h3>Hal</h3>
+                <p>My attempt at learning machine learning. Following the book <cite>Make Your Own Neural Network</cite>,
+                   a three-layer network written from scratch that reads the digits you write down. 91.8% on MNIST.
+                   It was amazing.</p>
                 <p class="tech">Python, NumPy, SciPy</p>
                 <a href="https://github.com/Hamidspirit/Hal" target="_blank" rel="noopener" class="link">Source on GitHub</a>
             </article>
 
             <article class="card">
-                <h2>REST Server in Go</h2>
+                <h3>REST Server in Go</h3>
                 <p>The same task API built three ways: standard library with my own middleware,
                    with Gin, and a TLS server with auth.</p>
                 <p class="tech">Go, Gin</p>
@@ -83,10 +115,11 @@
             </article>
 
             <article class="card">
-                <h2>Web Scraper, twice</h2>
+                <h3>Web Scraper, twice</h3>
                 <p>First a Go CLI that scrapes with CSS selectors, follows pagination, stores
                    results in SQLite and exports JSON or text. Then the same idea in Python with Scrapy and MongoDB.
-                   Python was the better experience, it abstracts many things.</p>
+                   Python was the better experience, it abstracts many things.
+                   Later I used it at work to keep track of competitors' prices.</p>
                 <p class="tech">Go, goquery, SQLite / Python, Scrapy, MongoDB</p>
                 <div class="links">
                     <a href="https://github.com/Hamidspirit/web-scraper" target="_blank" rel="noopener" class="link">Go version</a>
@@ -95,7 +128,7 @@
             </article>
 
             <article class="card">
-                <h2>Student Management CLI</h2>
+                <h3>Student Management CLI</h3>
                 <p>Manages students and GPAs from the terminal. Uses SQLite, and falls back to
                    a JSON file if the database won't start. Admin and student roles, CSV/JSON export, tests.</p>
                 <p class="tech">Python, SQLite, rich</p>
@@ -103,7 +136,7 @@
             </article>
 
             <article class="card">
-                <h2>Live Chat</h2>
+                <h3>Live Chat</h3>
                 <p>Real-time chat with accounts. Messages go over WebSockets,
                    passwords are hashed, everything lives in SQLite.</p>
                 <p class="tech">Python, Flask-SocketIO, SQLite</p>
@@ -111,17 +144,34 @@
             </article>
 
             <article class="card">
-                <h2>Just Write</h2>
-                <p>My static site generator. I wanted to make a static blog with it.</p>
+                <h3>Just Write</h3>
+                <p>Turns Markdown into a static website. I looked at Jekyll, thought it was too complicated for me,
+                   and made my own simpler one for a blog on GitHub Pages. Safe to say I never actually made the blog with it.</p>
                 <p class="tech">Python, Jinja2, click</p>
                 <a href="https://github.com/Hamidspirit/just-write" target="_blank" rel="noopener" class="link">Source on GitHub</a>
             </article>
 
             <article class="card">
-                <h2>Learning Log</h2>
+                <h3>Learning Log</h3>
                 <p>To keep track of stuff I've learned. Notes organised by topic, behind a login.</p>
                 <p class="tech">Python, Django, SQLite</p>
                 <a href="https://github.com/Hamidspirit/Learning_log" target="_blank" rel="noopener" class="link">Source on GitHub</a>
+            </article>
+
+            <article class="card">
+                <h3>Customer Support Bot</h3>
+                <p>A chatbot connected to an LLM, answering customers from an FAQ.
+                   I was asked to make it for a client while everyone at work was talking about MCP.
+                   It sucked, but at least I used MongoDB for this one.</p>
+                <p class="tech">JavaScript, Node.js, Gemini, MongoDB</p>
+                <a href="https://github.com/Hamidspirit/node_gemini" target="_blank" rel="noopener" class="link">Source on GitHub</a>
+            </article>
+
+            <article class="card">
+                <h3>Sudoku</h3>
+                <p>A sudoku game that solves itself with backtracking and generates new puzzles by difficulty.
+                   Damn, I was smart. What happened to me?</p>
+                <p class="tech">JavaScript, HTML, CSS</p>
             </article>
         </div>
 
@@ -130,12 +180,16 @@
             <ul>
                 <li><a href="https://github.com/Hamidspirit/the-super-tiny-compiler" target="_blank" rel="noopener">the-super-tiny-compiler</a>
                     the famous JavaScript one, ported to Python</li>
+                <li><span class="name">RSS scraper</span>
+                    in Go with chi as the router instead of Gin, plus some CORS handling. Mostly followed a tutorial</li>
+                <li><span class="name">Simple blockchain</span>
+                    in Go, for learning. Got as far as the genesis block and mining new ones, then abandoned it</li>
                 <li><a href="https://github.com/Hamidspirit/socket_server" target="_blank" rel="noopener">socket_server</a>
                     Go server, Python clients, messages over raw sockets</li>
                 <li><a href="https://github.com/Hamidspirit/3D-Modeller" target="_blank" rel="noopener">3D-Modeller</a>
                     Python and OpenGL. Barely learned anything, I should make a game to actually understand it</li>
                 <li><a href="https://github.com/Hamidspirit/space_invader" target="_blank" rel="noopener">space_invader</a>
-                    retro game made with pygame</li>
+                    the classic, in pygame. Ahh, those times, I was writing most of the code myself</li>
                 <li><a href="https://github.com/Hamidspirit/C" target="_blank" rel="noopener">C</a>
                     my C projects</li>
             </ul>
