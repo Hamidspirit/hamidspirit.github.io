@@ -3,46 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hamid Spirit</title>
+    <meta name="description" content="Hamid Spirit, backend developer. Go, Python, and a lot of breaking things to see how they work.">
+    <meta property="og:title" content="Hamid Spirit">
+    <meta property="og:description" content="Backend developer. Go, Python, and a lot of breaking things to see how they work.">
+    <meta property="og:url" content="https://hamidspirit.github.io/">
+    <meta property="og:type" content="website">
+    <meta name="theme-color" content="#000000">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&display=swap" rel="stylesheet">
-    <title>Spirit</title>
 </head>
 <body>
   <div class="background"></div>
   <div class="background-overlay"></div>
   <div class="cursor-highlight" id="cursor"></div>
 
+  <nav class="site-nav">
+      <a href="index.html" aria-current="page">~/</a>
+      <a href="projects.html">~/projects</a>
+      <a href="/blog/">~/blog</a>
+  </nav>
+
   <main>
 
-    <div id="introduction">
+    <header id="introduction">
         <h1>Hamid Spirit,</h1>
-        <p>Backend Developer (intern)</p>
-    </div>
+        <p class="role">Backend Developer (intern)</p>
+    </header>
 
-    <div id="about_me">
+    <section id="about_me">
         <h2>Here is a Generic About Me</h2>
 
         <p>I am majoring in Computer Science. I have liked computers since childhood
            and have broken my Windows operating system countless times.</p>
         <p>Programming is constantly learning.</p>
-    </div>
+        <p>Right now I'm working on an OCR and NLP project for medical purposes,
+           and learning Go, ML and C. I will one day make a video game.</p>
+    </section>
 
+    <section id="stack">
+        <h2>What I work with</h2>
+        <ul class="stack-list">
+            <li>Go</li>
+            <li>Python</li>
+            <li>C</li>
+            <li>JavaScript</li>
+            <li>FastAPI</li>
+            <li>Django</li>
+            <li>Flask</li>
+            <li>gRPC</li>
+            <li>PostgreSQL</li>
+            <li>MongoDB</li>
+            <li>SQLite</li>
+            <li>Docker</li>
+            <li>Git</li>
+        </ul>
+    </section>
+
+    <!--
+    Experience goes here once the details are in. Format:
     <section id="experience">
         <h2>Experience</h2>
-        <a href="projects.html" >Dedicated project page</a>
-        
-        <h3>Python</h3>
-        <h3>GO</h3>
+        <ol class="timeline">
+            <li>
+                <h3>Role, Company</h3>
+                <p class="when">2025 – now</p>
+                <p>What you did there, in a sentence or two.</p>
+            </li>
+        </ol>
+    </section>
+    -->
+
+    <section id="featured">
+        <h2>Things I've built</h2>
+        <ul class="featured-list">
+            <li>
+                <a href="https://github.com/Hamidspirit/MOK" target="_blank" rel="noopener">MOK</a>
+                <p>Make your Own Kafka. A Kafka-style broker in Go, from TCP connections up to request parsing and responses.</p>
+            </li>
+            <li>
+                <a href="https://github.com/Hamidspirit/MedAi" target="_blank" rel="noopener">MedAI</a>
+                <p>Medical OCR prototype. A Flask backend talks to an OCR service over gRPC.</p>
+            </li>
+            <li>
+                <a href="https://github.com/Hamidspirit/a-git-clone" target="_blank" rel="noopener">A Git Clone</a>
+                <p>Some of git rewritten in Go: init, commit, trees and objects. Possibly the single worst piece of code ever written, and the honour is mine.</p>
+            </li>
+        </ul>
+        <a href="projects.html" class="more">See all projects</a>
     </section>
   </main>
 
   <footer id="info">
-      <p>Contact: <a href="mailto:hamidspiritbusiness@gmail.com">hamidspiritbusiness@gmail.com</a></p>
-      <a href="https://github.com/Hamidspirit" target="_blank" rel="noopener" class="contact">View my GitHub</a>
-      <a href="/blog/" class="contact">Blog</a>
+      <p>Say hi: <a href="mailto:hamidspiritbusiness@gmail.com">hamidspiritbusiness@gmail.com</a></p>
+      <ul class="contact-list">
+          <li><a href="https://github.com/Hamidspirit" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href="https://www.linkedin.com/in/hamid-spirit-2938962a1/" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://t.me/hamidspirit" target="_blank" rel="noopener">Telegram</a></li>
+          <li><a href="https://x.com/spirithamid" target="_blank" rel="noopener">X</a></li>
+      </ul>
   </footer>
 
   <script src="script.js"></script>

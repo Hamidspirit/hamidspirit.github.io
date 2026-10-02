@@ -3,71 +3,155 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hamid Spirit / projects</title>
+    <meta name="description" content="Things Hamid Spirit has built: a Kafka clone and a git clone in Go, a medical OCR prototype, a neural network from scratch, and more.">
+    <meta property="og:title" content="Hamid Spirit / projects">
+    <meta property="og:description" content="A Kafka clone and a git clone in Go, a medical OCR prototype, a neural network from scratch, and more.">
+    <meta property="og:url" content="https://hamidspirit.github.io/projects.html">
+    <meta property="og:type" content="website">
+    <meta name="theme-color" content="#000000">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&display=swap" rel="stylesheet">
-    <title>Projects</title>
 </head>
-<body>
+<body class="projects">
     <div class="background"></div>
     <div class="background-overlay"></div>
     <div class="cursor-highlight" id="cursor"></div>
 
-    <nav class="back"><a href="index.html">back home</a></nav>
+    <nav class="site-nav">
+        <a href="index.html">~/</a>
+        <a href="projects.html" aria-current="page">~/projects</a>
+        <a href="/blog/">~/blog</a>
+    </nav>
 
-    <div class="cards">
-        <div class="card">
-            <h1>Chat App</h1>
-            <p> <strong class="title">Description: </strong> A real-time chat application supporting multiple users.</p>
-            <p><strong class="title">Tech Stack: </strong> Python (Flask), JavaScript, SQLite, and WebSocket.</p>
-            <p><strong class="title">Key Features: </strong> User authentication, real-time messaging, and responsive design.</p>
-            <a href="https://github.com/Hamidspirit/live_chat_app" target="_blank" rel="noopener" class="link">See on Github</a>
-        </div>
-        
-        <div class="card">
-            <h1>Web Scraper</h1>
-            <p> <strong class="title">Description: </strong> A command-line tool written in Go for scraping website content, storing it in an SQLite database, and exporting it in different formats.</p>
-            <p><strong class="title">Tech Stack: </strong> Go programming language.</p>
-            <p><strong class="title">Key Features: </strong> Scrape data from a user-specified website using CSS selectors.</p>
-            <a href="https://github.com/Hamidspirit/web-scraper" target="_blank" rel="noopener" class="link">See on Github</a>
+    <main>
+        <header class="page-head">
+            <h1>Projects</h1>
+            <p>Mostly things I built to find out how they work on the inside.</p>
+        </header>
+
+        <div class="cards">
+            <article class="card">
+                <h2>MOK</h2>
+                <p>Make your Own Kafka. A Kafka-style message broker written in Go:
+                   handles TCP connections, parses request headers and metadata, writes responses.</p>
+                <p class="tech">Go, TCP</p>
+                <a href="https://github.com/Hamidspirit/MOK" target="_blank" rel="noopener" class="link">Source on GitHub</a>
+            </article>
+
+            <article class="card">
+                <h2>MedAI</h2>
+                <p>Medical OCR prototype. A Flask backend talks to a Pytesseract OCR service over gRPC.
+                   An MVP, I tried to make a working demo as fast as I could.</p>
+                <p class="tech">Python, Flask, gRPC, Pytesseract</p>
+                <a href="https://github.com/Hamidspirit/MedAi" target="_blank" rel="noopener" class="link">Source on GitHub</a>
+            </article>
+
+            <article class="card">
+                <h2>A Git Clone</h2>
+                <p>Some of git's features rewritten in Go: <code>init</code>, <code>commit</code>,
+                   <code>hash-object</code>, <code>cat-file</code>, <code>write-tree</code>, <code>read-tree</code>.
+                   This might be the single worst piece of code ever written, and the honour is mine.</p>
+                <p class="tech">Go</p>
+                <a href="https://github.com/Hamidspirit/a-git-clone" target="_blank" rel="noopener" class="link">Source on GitHub</a>
+            </article>
+
+            <article class="card">
+                <h2>Ticketing API</h2>
+                <p>A ticketing REST API I built as a task for a company. They reviewed it.</p>
+                <p class="tech">Python, FastAPI</p>
+                <a href="https://github.com/Hamidspirit/ticketing-api" target="_blank" rel="noopener" class="link">Source on GitHub</a>
+            </article>
+
+            <article class="card">
+                <h2>Hal</h2>
+                <p>My attempt at learning machine learning. A three-layer neural network
+                   written from scratch, trained on MNIST to read handwritten digits. 91.8% accuracy.</p>
+                <p class="tech">Python, NumPy, SciPy</p>
+                <a href="https://github.com/Hamidspirit/Hal" target="_blank" rel="noopener" class="link">Source on GitHub</a>
+            </article>
+
+            <article class="card">
+                <h2>REST Server in Go</h2>
+                <p>The same task API built three ways: standard library with my own middleware,
+                   with Gin, and a TLS server with auth.</p>
+                <p class="tech">Go, Gin</p>
+                <a href="https://github.com/Hamidspirit/REST-Server-in-Go" target="_blank" rel="noopener" class="link">Source on GitHub</a>
+            </article>
+
+            <article class="card">
+                <h2>Web Scraper, twice</h2>
+                <p>First a Go CLI that scrapes with CSS selectors, follows pagination, stores
+                   results in SQLite and exports JSON or text. Then the same idea in Python with Scrapy and MongoDB.
+                   Python was the better experience, it abstracts many things.</p>
+                <p class="tech">Go, goquery, SQLite / Python, Scrapy, MongoDB</p>
+                <div class="links">
+                    <a href="https://github.com/Hamidspirit/web-scraper" target="_blank" rel="noopener" class="link">Go version</a>
+                    <a href="https://github.com/Hamidspirit/Scrape-that-Data" target="_blank" rel="noopener" class="link">Python version</a>
+                </div>
+            </article>
+
+            <article class="card">
+                <h2>Student Management CLI</h2>
+                <p>Manages students and GPAs from the terminal. Uses SQLite, and falls back to
+                   a JSON file if the database won't start. Admin and student roles, CSV/JSON export, tests.</p>
+                <p class="tech">Python, SQLite, rich</p>
+                <a href="https://github.com/Hamidspirit/student_mangement" target="_blank" rel="noopener" class="link">Source on GitHub</a>
+            </article>
+
+            <article class="card">
+                <h2>Live Chat</h2>
+                <p>Real-time chat with accounts. Messages go over WebSockets,
+                   passwords are hashed, everything lives in SQLite.</p>
+                <p class="tech">Python, Flask-SocketIO, SQLite</p>
+                <a href="https://github.com/Hamidspirit/live_chat_app" target="_blank" rel="noopener" class="link">Source on GitHub</a>
+            </article>
+
+            <article class="card">
+                <h2>Just Write</h2>
+                <p>My static site generator. I wanted to make a static blog with it.</p>
+                <p class="tech">Python, Jinja2, click</p>
+                <a href="https://github.com/Hamidspirit/just-write" target="_blank" rel="noopener" class="link">Source on GitHub</a>
+            </article>
+
+            <article class="card">
+                <h2>Learning Log</h2>
+                <p>To keep track of stuff I've learned. Notes organised by topic, behind a login.</p>
+                <p class="tech">Python, Django, SQLite</p>
+                <a href="https://github.com/Hamidspirit/Learning_log" target="_blank" rel="noopener" class="link">Source on GitHub</a>
+            </article>
         </div>
 
-        <div class="card">
-            <h1>Hal</h1>
-            <p> <strong class="title">Description: </strong>Simple neural network trained on MNIST to guess handwritten numbers.</p>
-            <p><strong class="title">Tech Stack: </strong>Python , numpy, scipy.</p>
-            <p><strong class="title">Key Features: </strong> classify numbers.</p>
-            <a href="https://github.com/Hamidspirit/Hal" target="_blank" rel="noopener" class="link">See on Github</a>
-        </div>
-        
+        <section class="tinkered">
+            <h2>Also tinkered with</h2>
+            <ul>
+                <li><a href="https://github.com/Hamidspirit/the-super-tiny-compiler" target="_blank" rel="noopener">the-super-tiny-compiler</a>
+                    the famous JavaScript one, ported to Python</li>
+                <li><a href="https://github.com/Hamidspirit/socket_server" target="_blank" rel="noopener">socket_server</a>
+                    Go server, Python clients, messages over raw sockets</li>
+                <li><a href="https://github.com/Hamidspirit/3D-Modeller" target="_blank" rel="noopener">3D-Modeller</a>
+                    Python and OpenGL. Barely learned anything, I should make a game to actually understand it</li>
+                <li><a href="https://github.com/Hamidspirit/space_invader" target="_blank" rel="noopener">space_invader</a>
+                    retro game made with pygame</li>
+                <li><a href="https://github.com/Hamidspirit/C" target="_blank" rel="noopener">C</a>
+                    my C projects</li>
+            </ul>
+        </section>
+    </main>
 
-        <div class="card">
-            <h1>A Git Clone</h1>
-            <p> <strong class="title">Description: </strong>Trying to re-write some of gits features in Go.</p>
-            <p><strong class="title">Tech Stack: </strong>Go.</p>
-            <p><strong class="title">Key Features: </strong> simple version control.</p>
-            <a href="https://github.com/Hamidspirit/a-git-clone" target="_blank" rel="noopener" class="link">See on Github</a>
-        </div>
+    <footer id="info">
+        <p>Say hi: <a href="mailto:hamidspiritbusiness@gmail.com">hamidspiritbusiness@gmail.com</a></p>
+        <ul class="contact-list">
+            <li><a href="https://github.com/Hamidspirit" target="_blank" rel="noopener">GitHub</a></li>
+            <li><a href="https://www.linkedin.com/in/hamid-spirit-2938962a1/" target="_blank" rel="noopener">LinkedIn</a></li>
+            <li><a href="https://t.me/hamidspirit" target="_blank" rel="noopener">Telegram</a></li>
+            <li><a href="https://x.com/spirithamid" target="_blank" rel="noopener">X</a></li>
+        </ul>
+    </footer>
 
-        <div class="card">
-            <h1>Just Write</h1>
-            <p> <strong class="title">Description: </strong>Simple static website generator, i wanted to make static blog with it.</p>
-            <p><strong class="title">Tech Stack: </strong>Python, Jinja2, click.</p>
-            <p><strong class="title">Key Features: </strong> Static blog generator CLI.</p>
-            <a href="https://github.com/Hamidspirit/just-write" target="_blank" rel="noopener" class="link">See on Github</a>
-        </div>
-
-        <div class="card">
-            <h1>Learning log</h1>
-            <p> <strong class="title">Description: </strong> A web application for tracking personal learning and achievements. Taking notes on different topics</p>
-            <p><strong class="title">Tech Stack: </strong>Python (Django), SQLite.</p>
-            <p><strong class="title">Key Features: </strong> Task creation, progress tracking.</p>
-            <a href="https://github.com/Hamidspirit/Learning_log" target="_blank" rel="noopener" class="link">See on Github</a>
-        </div>
-
-    </div>
     <script src="script.js"></script>
 </body>
 </html>

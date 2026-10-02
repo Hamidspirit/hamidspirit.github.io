@@ -1,47 +1,98 @@
+:root {
+    --black: #000000;
+    --cream: #F5ECD5;
+    --frame: #FFFAEC;
+    --pink: hotpink;
+    --green: #578E7E;
+    --card: #426E60;        /* the green, one step darker so cream text stays readable */
+    --card-hover: #D95A9A;  /* the pink hover, solid so dark text stays readable */
+    --ink: #1b1a1a;
+    --muted: #b9b2a0;
+
+    /* space between the window edge and the frame */
+    --frame-top: 3vh;
+    --frame-side: 2.5vw;
+}
+
 * {
+    box-sizing: border-box;
     text-decoration: none;
 }
 
-* :link{
-    color: hotpink;
+a:link {
+    color: var(--pink);
 }
 
-* :visited{
-    color: #578E7E;
+a:visited {
+    color: var(--green);
+}
+
+a:hover {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+a:focus-visible {
+    outline: 2px dashed var(--pink);
+    outline-offset: 3px;
 }
 
 body {
     margin: 0;
-    /* height: 100vh; */
-    overflow: auto;
-    font-family:"Kode Mono", Arial, sans-serif;
-    font-weight: 300;
-    color: #F5ECD5;
+    padding: calc(var(--frame-top) + 2rem) calc(var(--frame-side) + 1.5rem) calc(var(--frame-top) + 2rem);
+    font-family: "Kode Mono", ui-monospace, monospace;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--cream);
+    background: var(--black);
 }
+
+main,
+.site-nav,
+#info {
+    max-width: 70ch;
+    margin-left: 5%;
+}
+
+h1, h2, h3 {
+    line-height: 1.2;
+    font-weight: 600;
+}
+
+h2 {
+    font-size: 1.25rem;
+    margin: 3rem 0 1rem;
+}
+
+ul {
+    padding: 0;
+    list-style: none;
+}
+
+code {
+    font-family: inherit;
+    font-weight: 600;
+}
+
 
 /* General style of page */
 .background {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #000000;
-    background-size: cover;
+    inset: 0;
+    background: var(--black);
     z-index: -5;
 }
 
 .background-overlay {
     position: fixed;
-    top: 3%;
-    left: 2%;
-    width: 95%;
-    height: 92%;
+    top: var(--frame-top);
+    bottom: var(--frame-top);
+    left: var(--frame-side);
+    right: var(--frame-side);
     overflow: hidden;
 
-    border: solid #FFFAEC;
-    border-radius: 0%;
-    border-width: 0.11rem;
+    border: 0.11rem solid var(--frame);
 
     background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0.2px, transparent 2px);
     background-size: 15px 15px;
@@ -51,6 +102,9 @@ body {
     z-index: -1;
 }
 
+.background-overlay canvas {
+    display: block;
+}
 
 .cursor-highlight {
     position: fixed;
@@ -70,158 +124,188 @@ body {
     opacity: 1;
 }
 
-.background-overlay canvas {
-    display: block;
-}
 
-a:focus-visible {
-    outline: 2px dashed hotpink;
-    outline-offset: 3px;
-}
-
-
-
-
-/* Main body of text and content index.html*/
-
-#introduction {
-    align-items: center;
-
-    margin-left: 5%;
-    margin-top: 2%;
-    margin-bottom: 2%;
-
-    font-size: 12px;
-    font-weight: 200;
-}
-
-
-#about_me{
-    align-items: center;
-
-    margin-bottom: 1%;
-    margin-left: 5%;
-}
-
-#experience {
-    margin-left: 5%;
-    /* padding: 24px 64px; */
-
-}
-
-#info {
-    margin-left: 5%;
+/* nav, shared by every page */
+.site-nav {
     display: flex;
-    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.75rem;
+    margin-bottom: 3rem;
 }
 
-.contact {
-    margin-left: 2%;
+.site-nav a,
+.site-nav a:visited {
+    color: var(--cream);
 }
 
-.back {
-    margin: 4rem 0 0 10%;
+.site-nav a[aria-current="page"] {
+    color: var(--pink);
 }
 
 
-/* styling for project.html */
+/* index.html */
+#introduction h1 {
+    font-size: clamp(2.5rem, 8vw, 4.5rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin: 0;
+}
+
+#introduction .role {
+    margin: 0.5rem 0 0;
+    color: var(--muted);
+}
+
+.stack-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.25rem;
+    margin: 0;
+}
+
+.featured-list li {
+    margin-bottom: 1.5rem;
+}
+
+.featured-list a {
+    font-size: 1.125rem;
+    font-weight: 600;
+}
+
+.featured-list p {
+    margin: 0.25rem 0 0;
+}
+
+.more {
+    display: inline-block;
+    margin-top: 0.5rem;
+}
+
+
+/* footer, shared by every page */
+#info {
+    margin-top: 4rem;
+}
+
+#info p {
+    margin: 0 0 0.5rem;
+}
+
+.contact-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+    margin: 0;
+}
+
+
+/* projects.html */
+.page-head h1 {
+    font-size: clamp(2rem, 6vw, 3rem);
+    margin: 0;
+}
+
+.page-head p {
+    margin: 0.5rem 0 0;
+    color: var(--muted);
+}
+
+/* the cards get wider than the text column */
+.projects main {
+    max-width: none;
+}
 
 .cards {
-    position: relative;
-    left: 5%;
-    width: 90%;
-    gap: 1rem;
-    display: flex;
-    flex-direction: column;
-    /* flex-wrap: nowrap; */
-    justify-content: center;
-    align-items: center;
-
-    /* scale: 0.9; */
-    transition: opacity 0.6s ease, transform 0.6s ease;   
-    z-index: 2;
-}
-
-/* for mobile */
-@media (max-width: 800px){
-    .cards{
-        flex-direction: column;
-        padding-bottom: 6%;
-    }
-    
-    /* Disabling hover effect */
-    
-    .card:active {
-        transform: scale(1.05); /* Use active state instead of hover */
-    }
-}
-
-
-.card a{
-    color: hotpink;
-    font-weight: bold;
-    transition: color 0.2s ease;
-}
-
-.card:hover,
-.card:focus-within{
-    transform: scale(1.05);
-    color: #1b1a1a;
-    background-color: rgba(255, 105, 180 , 0.7);
-}
-
-.card:hover a,
-.card:focus-within a{
-    color: #F5ECD5;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 22rem), 1fr));
+    gap: 1.5rem;
+    max-width: 75rem;
+    margin-top: 3rem;
 }
 
 .card {
     display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    /* justify-content: center; */
-    align-items: center;
-
-    height: fit-content;
-    width: 80%;
-    background-color:rgba(87, 142, 122, 0.9);
-    box-shadow: 0 4px 6px rgba(231, 228, 228, 0.1) ;
-    margin: 5% 5% 5% 5%;
-    padding-bottom: 10px;
-    padding-right: 10px;
-    gap: 1rem;
-    transition: transform 0.3s ease, background-color 0.3s ease;
-    border-radius: 2%;
+    flex-direction: column;
+    padding: 1.25rem 1.5rem;
+    background-color: var(--card);
+    box-shadow: 0 4px 6px rgba(231, 228, 228, 0.1);
+    border-radius: 6px;
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
 }
 
-/* .card img {
-    max-width: 100%;     
-    border-radius: 5px; 
-    margin-bottom: 15px; 
-} */
-
-.card h1 {
-    font-size: 1.5em;
-    /* margin-bottom: 0px; */
+.card h2 {
+    margin: 0 0 0.75rem;
+    font-size: 1.375rem;
 }
 
 .card p {
-    line-height: 1.6rem;
-    padding: 0 1rem;
-    margin-top: 2px;
-    margin-bottom: 6px;
+    margin: 0 0 0.75rem;
 }
 
-.title{
-    display: block;
-    font-size: large;
+.card .tech {
+    font-size: 0.875rem;
+    opacity: 0.85;
 }
+
+/* push links to the bottom so they line up across a row */
+.card .link,
+.card .links {
+    margin-top: auto;
+}
+
+.card .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+}
+
+.card a,
+.card a:visited {
+    color: var(--cream);
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-color: var(--pink);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+    transition: color 0.2s ease;
+}
+
+.card:hover,
+.card:focus-within {
+    transform: scale(1.03);
+    color: var(--ink);
+    background-color: var(--card-hover);
+}
+
+.card:hover a,
+.card:focus-within a {
+    color: var(--ink);
+    text-decoration-color: var(--ink);
+}
+
+.card a:focus-visible {
+    outline-color: var(--cream);
+}
+
+.tinkered {
+    max-width: 70ch;
+}
+
+.tinkered li {
+    margin-bottom: 0.75rem;
+}
+
+.tinkered a {
+    margin-right: 0.5rem;
+    font-weight: 600;
+}
+
 
 /* scroll reveal, only applied when JS is running */
 .card.reveal {
     opacity: 0;
     transform: scale(0.9);
-    transition: opacity 0.6s ease, transform 0.6s ease, background-color 0.3s ease;
+    transition: opacity 0.6s ease, transform 0.6s ease, background-color 0.3s ease, color 0.3s ease;
 }
 
 .card.reveal.in-view {
@@ -231,5 +315,43 @@ a:focus-visible {
 
 .card.reveal.in-view:hover,
 .card.reveal.in-view:focus-within {
-    transform: scale(1.05);
+    transform: scale(1.03);
+}
+
+
+/* for mobile */
+@media (max-width: 800px) {
+    body {
+        padding-left: calc(var(--frame-side) + 1rem);
+        padding-right: calc(var(--frame-side) + 1rem);
+    }
+
+    main,
+    .site-nav,
+    #info {
+        margin-left: 0;
+    }
+
+    .card:hover,
+    .card:focus-within,
+    .card.reveal.in-view:hover {
+        transform: none;
+    }
+
+    .card:active {
+        transform: scale(1.03);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .card,
+    .card.reveal {
+        transition: none;
+    }
+
+    .card:hover,
+    .card:focus-within,
+    .card.reveal.in-view:hover {
+        transform: none;
+    }
 }
