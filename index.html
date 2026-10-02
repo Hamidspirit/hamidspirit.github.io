@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hamid Spirit</title>
-    <meta name="description" content="Hamid Spirit, backend developer from Iran. Django, Go and microservices. Open to remote work.">
+    <meta name="description" content="Hamid Spirit, backend developer from Iran. Django, NestJS, Go and microservices over Kafka. Open to remote work.">
     <meta property="og:title" content="Hamid Spirit">
-    <meta property="og:description" content="Backend developer from Iran. Django, Go and microservices. Open to remote work.">
+    <meta property="og:description" content="Backend developer from Iran. Django, NestJS, Go and microservices over Kafka. Open to remote work.">
     <meta property="og:url" content="https://hamidspirit.github.io/">
     <meta property="og:type" content="website">
     <meta name="theme-color" content="#000000">
@@ -50,9 +50,20 @@
         <h2>Experience</h2>
         <ol class="timeline">
             <li>
-                <h3>Freelance</h3>
-                <p class="when">now</p>
+                <h3>Freelance Backend Developer</h3>
+                <p class="when">2026 to now</p>
                 <p>Backend projects for clients.</p>
+                <ul class="work">
+                    <li>
+                        <!-- add the link once the domain is ready: <h4><a href="https://..." target="_blank" rel="noopener">Harmonic</a></h4> -->
+                        <h4>Harmonic</h4>
+                        <p>Backend for a multi-tenant SaaS that runs 360-degree employee evaluations.
+                           An LLM turns the review answers into an anonymised feedback report for each employee.
+                           I wrote about 90% of the commits: 4 NestJS services talking over Kafka, each with its own
+                           PostgreSQL database, 55 endpoints, role-based access, rotating refresh tokens,
+                           Docker, GitLab CI and 27 end-to-end tests. Delivered the MVP in September 2026.</p>
+                    </li>
+                </ul>
             </li>
             <li>
                 <h3>Backend Developer, Nahira</h3>
@@ -92,9 +103,11 @@
             <dt>Backend</dt>
             <dd>Django, Django REST Framework, NestJS, FastAPI, Flask</dd>
             <dt>Messaging and data</dt>
-            <dd>RabbitMQ, Kafka, PostgreSQL, MySQL, Redis, MongoDB</dd>
+            <dd>Kafka, RabbitMQ, PostgreSQL, MySQL, Redis, MongoDB, TypeORM</dd>
+            <dt>LLMs</dt>
+            <dd>Claude, OpenAI and Gemini APIs</dd>
             <dt>Tools</dt>
-            <dd>Docker, Nginx, Git, GitHub Actions, Pytest, Linux shell</dd>
+            <dd>Docker, Nginx, Git, GitLab CI, GitHub Actions, Pytest, Linux shell</dd>
             <dt>A bit of frontend</dt>
             <dd>React, Redux Toolkit</dd>
         </dl>

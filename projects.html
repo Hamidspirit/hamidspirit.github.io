@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hamid Spirit / projects</title>
-    <meta name="description" content="Things Hamid Spirit has built: a car parts marketplace on microservices, a Kafka clone and a git clone in Go, a neural network from scratch, and more.">
+    <meta name="description" content="Things Hamid Spirit has built: an LLM-powered evaluation SaaS, a car parts marketplace on microservices, a Kafka clone and a git clone in Go, a neural network from scratch, and more.">
     <meta property="og:title" content="Hamid Spirit / projects">
     <meta property="og:description" content="A car parts marketplace on microservices, a Kafka clone and a git clone in Go, a neural network from scratch, and more.">
     <meta property="og:url" content="https://hamidspirit.github.io/projects.html">
@@ -30,12 +30,22 @@
     <main>
         <header class="page-head">
             <h1>Projects</h1>
-            <p>Work from my job, and things I built to find out how they work on the inside.</p>
+            <p>Work for clients and companies, and things I built to find out how they work on the inside.</p>
         </header>
 
         <h2 class="group">At work</h2>
-        <p class="group-note">Built at Nahira. The code is private, so there are no source links.</p>
+        <p class="group-note">Built for clients and at Nahira. The code is private, so there are no source links.</p>
         <div class="cards">
+            <article class="card">
+                <h3>Harmonic</h3>
+                <p>360-degree employee evaluations as a multi-tenant SaaS. An LLM turns the review answers into
+                   an anonymised feedback report. My favourite part was the anonymity math: if one group's scores
+                   are hidden, all of them are, otherwise you could subtract the shown groups from the overall
+                   score and find the small one. Freelance, MVP delivered in September 2026.</p>
+                <p class="tech">NestJS, TypeScript, Kafka, PostgreSQL, TypeORM, JWT, Claude / OpenAI / Gemini, Docker, GitLab CI</p>
+                <!-- add the link once the domain is ready: <a href="https://..." target="_blank" rel="noopener" class="link">Visit ...</a> -->
+            </article>
+
             <article class="card">
                 <h3>Girpazh</h3>
                 <p>Multi-vendor marketplace for car parts, built as 9 microservices.
