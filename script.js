@@ -1,105 +1,107 @@
 const cursor = document.getElementById('cursor');
-const cards = document.querySelectorAll('.card');
-document.addEventListener('mousemove', (e) => {
-		cursor.style.top = `${e.clientY}px`;
-		cursor.style.left = `${e.clientX}px`;
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// cursor glow follows the mouse, stays hidden until the first move (so touch devices never see it)
+document.addEventListener('pointermove', (e) => {
+	if (e.pointerType !== 'mouse') return;
+	cursor.style.top = `${e.clientY}px`;
+	cursor.style.left = `${e.clientX}px`;
+	cursor.classList.add('active');
 });
 
 
+// dots inside the frame, lines from the pointer to dots nearby
 document.addEventListener('DOMContentLoaded', () => {
 	const overlay = document.querySelector('.background-overlay');
 	const canvas = document.createElement('canvas');
 	const ctx = canvas.getContext('2d');
 	overlay.appendChild(canvas);
 
-	canvas.width = overlay.offsetWidth;
-	canvas.height = overlay.offsetHeight;
+	const RANGE = 150;     // how close a dot has to be to get a line
+	const FADE_MS = 1000;  // how long lines take to fade after the pointer stops
+	let dots = [];
+	let width = 0;
+	let height = 0;
+	const pointer = { x: 0, y: 0, lastMove: -Infinity };
+	let frame = null;
 
-	const dots = [];
-	const mouse = { x: null, y: null };
+	function resize() {
+		const dpr = window.devicePixelRatio || 1;
+		width = overlay.clientWidth;
+		height = overlay.clientHeight;
+		canvas.width = width * dpr;
+		canvas.height = height * dpr;
+		canvas.style.width = `${width}px`;
+		canvas.style.height = `${height}px`;
+		ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
-	// Generate random dots
-	for (let i = 0; i < 100; i++) {
-		dots.push({
-			x: Math.random() * canvas.width,
-			y: Math.random() * canvas.height,
-			radius: 1,
-		});
+		// about 100 dots on a laptop screen, fewer on a phone
+		const count = Math.round((width * height) / 11000);
+		dots = Array.from({ length: count }, () => ({
+			x: Math.random() * width,
+			y: Math.random() * height,
+		}));
+		draw(performance.now());
 	}
 
-	// Draw all dots
-	dots.forEach(dot => {
-		ctx.beginPath();
-		ctx.arc(dot.x, dot.y, dot.radius, 0, Math.PI * 2);
-		ctx.fillStyle = "white";
-		ctx.fill();
-	});
+	function draw(now) {
+		ctx.clearRect(0, 0, width, height);
 
-	// Handle mouse movement
-	document.addEventListener('mousemove', (event) => {
-		const rect = canvas.getBoundingClientRect();
-		mouse.x = event.clientX - rect.left;
-		mouse.y = event.clientY - rect.top;
-		connectToNearbyDots();
-	});
-
-	function connectToNearbyDots() {
-		ctx.clearRect(0, 0, canvas.width, canvas.height);
-		console.log("draw line to each dot")
-
-		// Draw all dots
-		dots.forEach(dot => {
+		ctx.fillStyle = 'white';
+		for (const dot of dots) {
 			ctx.beginPath();
-			ctx.arc(dot.x, dot.y, dot.radius, 0, Math.PI * 2);
-			ctx.fillStyle = "white";
+			ctx.arc(dot.x, dot.y, 1, 0, Math.PI * 2);
 			ctx.fill();
-		});
+		}
 
-		// Find and draw lines to nearby dots
-		dots.forEach(dot => {
-			const distance = Math.hypot(mouse.x - dot.x, mouse.y - dot.y);
-			if (distance < 150) { // Adjust the proximity range as needed
+		const fade = 1 - (now - pointer.lastMove) / FADE_MS;
+		if (fade <= 0) return false;
+
+		ctx.lineWidth = 1;
+		for (const dot of dots) {
+			const distance = Math.hypot(pointer.x - dot.x, pointer.y - dot.y);
+			if (distance < RANGE) {
 				ctx.beginPath();
-				ctx.moveTo(mouse.x, mouse.y);
+				ctx.moveTo(pointer.x, pointer.y);
 				ctx.lineTo(dot.x, dot.y);
-				ctx.strokeStyle = `rgba(255, 255, 255, ${1 - distance / 150})`;
-				ctx.lineWidth = 1;
+				ctx.strokeStyle = `rgba(255, 255, 255, ${(1 - distance / RANGE) * fade})`;
 				ctx.stroke();
 			}
-		});
-
-		// Fade out the lines smoothly
-		setTimeout(() => {
-			ctx.clearRect(0, 0, canvas.width, canvas.height);
-			dots.forEach(dot => {
-				ctx.beginPath();
-				ctx.arc(dot.x, dot.y, dot.radius, 0, Math.PI * 2);
-				ctx.fillStyle = "white";
-				ctx.fill();
-			});
-		}, 1000); // Adjust the fade-out duration
+		}
+		return true;
 	}
 
-	// Handle resizing
-	window.addEventListener('resize', () => {
-		canvas.width = overlay.offsetWidth;
-		canvas.height = overlay.offsetHeight;
+	function loop(now) {
+		frame = draw(now) ? requestAnimationFrame(loop) : null;
+	}
+
+	resize();
+	window.addEventListener('resize', resize);
+	if (reduceMotion) return;
+
+	document.addEventListener('pointermove', (e) => {
+		const rect = canvas.getBoundingClientRect();
+		pointer.x = e.clientX - rect.left;
+		pointer.y = e.clientY - rect.top;
+		pointer.lastMove = performance.now();
+		if (!frame) frame = requestAnimationFrame(loop);
 	});
 });
 
 
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.style.opacity = 1;
-      entry.target.style.transform = 'scale(1)';
-    } else {
-      entry.target.style.opacity = 0;
-      entry.target.style.transform = 'scale(0.9)';
-    }
-  });
-}, {
-  threshold: 0.5, // Adjust this to control when the effect triggers
-});
+// cards fade in as they scroll into view
+const cards = document.querySelectorAll('.card');
+if (!reduceMotion && 'IntersectionObserver' in window) {
+	const observer = new IntersectionObserver((entries) => {
+		entries.forEach((entry) => {
+			entry.target.classList.toggle('in-view', entry.isIntersecting);
+		});
+	}, {
+		threshold: 0.15, // low enough that tall cards on small screens still show up
+	});
 
-cards.forEach((card) => observer.observe(card));
+	cards.forEach((card) => {
+		card.classList.add('reveal');
+		observer.observe(card);
+	});
+}

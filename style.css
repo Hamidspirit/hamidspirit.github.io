@@ -62,6 +62,21 @@ body {
     transform: translate(-50%, -50%);
     mix-blend-mode: soft-light;
     z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.cursor-highlight.active {
+    opacity: 1;
+}
+
+.background-overlay canvas {
+    display: block;
+}
+
+a:focus-visible {
+    outline: 2px dashed hotpink;
+    outline-offset: 3px;
 }
 
 
@@ -69,7 +84,7 @@ body {
 
 /* Main body of text and content index.html*/
 
-#introdution {
+#introduction {
     align-items: center;
 
     margin-left: 5%;
@@ -100,8 +115,12 @@ body {
     align-items: center;
 }
 
-#contacts {
+.contact {
     margin-left: 2%;
+}
+
+.back {
+    margin: 4rem 0 0 10%;
 }
 
 
@@ -132,11 +151,6 @@ body {
     
     /* Disabling hover effect */
     
-    .link{
-        /* transform: none; */
-        background-color: transparent;
-        color: hotpink;
-    }
     .card:active {
         transform: scale(1.05); /* Use active state instead of hover */
     }
@@ -144,33 +158,21 @@ body {
 
 
 .card a{
-    color: transparent;
+    color: hotpink;
     font-weight: bold;
     transition: color 0.2s ease;
 }
 
-.cards :hover{
+.card:hover,
+.card:focus-within{
     transform: scale(1.05);
     color: #1b1a1a;
     background-color: rgba(255, 105, 180 , 0.7);
-    opacity: 1;
 }
 
-.cards :hover a{
-    background-color: transparent;
-    color: rgb(90, 151, 128);
-}
-
-.cards h1:hover{
-    background-color: transparent;
-}
-
-.cards p:hover{
-    background-color: transparent;
-}
-
-.cards strong:hover{
-    background-color: transparent;
+.card:hover a,
+.card:focus-within a{
+    color: #F5ECD5;
 }
 
 .card {
@@ -215,30 +217,19 @@ body {
     font-size: large;
 }
 
-#cope {
-    position: fixed;
-    background-color: #000000;
-    height: 3%;
-    width: 100%;
-    top: 0;
-    z-index: 10;
+/* scroll reveal, only applied when JS is running */
+.card.reveal {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 0.6s ease, transform 0.6s ease, background-color 0.3s ease;
 }
 
-#cope2 {
-    position: fixed;
-    background-color: #000000;
-    height: 4.5%;
-    width: 100%;
-    bottom: 0;
-    z-index: 10;
+.card.reveal.in-view {
+    opacity: 1;
+    transform: scale(1);
 }
 
-/* animmation */
-@keyframes pan {
-    0% {
-    background-position: 0% 0%;
-  }
-  100% {
-    background-position: 100% 0%;
-  }
+.card.reveal.in-view:hover,
+.card.reveal.in-view:focus-within {
+    transform: scale(1.05);
 }
